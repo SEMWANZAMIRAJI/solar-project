@@ -1,0 +1,445 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="{% static 'images/favicon.jpeg' %}">
+<title>TESTECH Company Ltd — Where Quality Meets Reliability</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div style="display:flex;align-items:center;gap:2px;background:#fff;padding:6px 10px;border-radius:6px;">
+      <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;color:#1B2F6E;">T</span>
+      <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;color:#F5A623;letter-spacing:-0.04em;">ES</span>
+    </div>
+    <div class="nav-brand">
+      <div class="nav-brand-name">TESTECH</div>
+      <div class="nav-brand-tag">Where Quality Meets Reliability</div>
+    </div>
+  </a>
+
+  <!-- Desktop nav -->
+  <ul>
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'it_solutions' %}">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+    <li><a href="{% url 'contact' %}" class="nav-btn">Get a Quote</a></li>
+  </ul>
+
+  <!-- Hamburger button (mobile only) -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- ── MOBILE NAV OVERLAY ── -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay" role="dialog" aria-label="Mobile navigation">
+  <ul class="mobile-nav-links">
+
+    <li>
+      <a href="#" class="mobile-dropdown-toggle">
+        Services <span class="mobile-dropdown-arrow">▾</span>
+      </a>
+      <ul class="mobile-submenu">
+        <li><a href="{% url 'it_solutions' %}">💻 IT Solutions</a></li>
+        <li><a href="{% url 'electrical_engineering' %}">⚡ Electrical Engineering</a></li>
+        <li><a href="{% url 'security_systems' %}">🔒 Security Systems</a></li>
+        <li><a href="{% url 'telecommunications' %}">📡 Telecommunications</a></li>
+        <li><a href="{% url 'maintenance' %}">🔧 Maintenance</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#" class="mobile-dropdown-toggle">
+        Company <span class="mobile-dropdown-arrow">▾</span>
+      </a>
+      <ul class="mobile-submenu">
+        <li><a href="{% url 'about' %}">🏢 About Us</a></li>
+        <li><a href="{% url 'projects' %}">🏗️ Our Projects</a></li>
+        <li><a href="{% url 'team' %}">👥 Our Team</a></li>
+        <li><a href="{% url 'careers' %}">💼 Careers</a></li>
+        <li><a href="{% url 'news' %}">📰 News</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+  </ul>
+
+  <div class="mobile-nav-cta">
+    <a href="{% url 'contact' %}">Get a Free Quote →</a>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bar"></div>
+  <div class="hero-geo"></div>
+  <div class="hero-geo2"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Testech Company Ltd</div>
+    <h1>
+      WHERE <span class="accent">QUALITY</span><br>
+      MEETS<br>
+      RELIABILITY
+    </h1>
+    <p class="hero-sub">
+      Professional technology and engineering solutions delivering excellence across East Africa. Built on trust, powered by expertise.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-orange">Our Services</a>
+      <a href="#contact" class="btn-ghost">Get Free Quote</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-num">500+</div>
+      <div class="hero-card-label">Projects Completed</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-num">12+</div>
+      <div class="hero-card-label">Years Experience</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-num">98%</div>
+      <div class="hero-card-label">Client Satisfaction</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-icon">🏆</div>
+    <div><div class="stat-num">500+</div><div class="stat-label">Projects Done</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">👥</div>
+    <div><div class="stat-num">300+</div><div class="stat-label">Happy Clients</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">📅</div>
+    <div><div class="stat-num">12+</div><div class="stat-label">Years in Business</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">🌍</div>
+    <div><div class="stat-num">5</div><div class="stat-label">Countries Served</div></div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-img-box" style="background: linear-gradient(135deg, #F4F6FB 60%, #e8ecf8);">
+        <svg viewBox="0 0 320 280" width="85%" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="280" height="240" rx="12" fill="#1B2F6E" opacity="0.04"/>
+          <circle cx="160" cy="130" r="70" fill="none" stroke="#1B2F6E" stroke-width="3" opacity="0.08"/>
+          <circle cx="160" cy="130" r="48" fill="#1B2F6E" opacity="0.08"/>
+          <circle cx="160" cy="130" r="22" fill="#1B2F6E" opacity="0.15"/>
+          <rect x="153" y="55" width="14" height="22" rx="4" fill="#F5A623" opacity="0.7"/>
+          <rect x="153" y="183" width="14" height="22" rx="4" fill="#F5A623" opacity="0.7"/>
+          <rect x="85" y="123" width="22" height="14" rx="4" fill="#F5A623" opacity="0.7"/>
+          <rect x="213" y="123" width="22" height="14" rx="4" fill="#F5A623" opacity="0.7"/>
+          <rect x="104" y="77" width="14" height="22" rx="4" fill="#1B2F6E" opacity="0.3" transform="rotate(45 111 88)"/>
+          <rect x="202" y="77" width="14" height="22" rx="4" fill="#1B2F6E" opacity="0.3" transform="rotate(-45 209 88)"/>
+          <rect x="104" y="167" width="14" height="22" rx="4" fill="#1B2F6E" opacity="0.3" transform="rotate(-45 111 178)"/>
+          <rect x="202" y="167" width="14" height="22" rx="4" fill="#1B2F6E" opacity="0.3" transform="rotate(45 209 178)"/>
+          <polyline points="148,133 157,142 174,122" fill="none" stroke="#F5A623" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="52" cy="52" r="16" fill="#F5A623" opacity="0.15"/>
+          <circle cx="52" cy="52" r="8" fill="#F5A623" opacity="0.3"/>
+          <circle cx="268" cy="220" r="20" fill="#1B2F6E" opacity="0.1"/>
+        </svg>
+      </div>
+      <div class="about-badge-float">
+        <div class="num">12+</div>
+        <div class="lbl">Years of Excellence</div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Tanzania's Trusted Technology Partner</h2>
+      <p class="section-sub">TESTECH Company Ltd is a leading technology and engineering firm based in Tanzania, committed to delivering innovative solutions that drive business growth and operational excellence.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="feature-icon">⚙️</div>
+          <div>
+            <div class="feature-title">Engineering Excellence</div>
+            <div class="feature-desc">Our certified engineers bring decades of combined experience to every project, ensuring precision and quality at every step.</div>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="feature-icon">🛡️</div>
+          <div>
+            <div class="feature-title">Proven Reliability</div>
+            <div class="feature-desc">We stand behind our work with comprehensive warranties and ongoing support, building lasting partnerships with our clients.</div>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="feature-icon">🌍</div>
+          <div>
+            <div class="feature-title">East Africa Coverage</div>
+            <div class="feature-desc">Operating across Tanzania, Kenya, Uganda, Rwanda and beyond, we bring world-class solutions to the East African market.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services" class="services-section">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our Core Services</h2>
+    </div>
+    <p class="section-sub" style="text-align:right;">Comprehensive solutions tailored to your needs — from consultation to completion.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-card-icon">💻</div>
+      <h3>IT Solutions & Infrastructure</h3>
+      <p>Network design, server setup, cybersecurity, and cloud solutions. We build the backbone that keeps your business running 24/7.</p>
+      <a href="{% url 'it_solutions' %}" class="service-card-link">Learn More →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <h3>Electrical Engineering</h3>
+      <p>Certified electrical installation, industrial wiring, power distribution, and generator systems for commercial and industrial clients.</p>
+      <a href="{% url 'electrical_engineering' %}" class="service-card-link">Learn More →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">🔒</div>
+      <h3>Security Systems</h3>
+      <p>CCTV installation, access control, alarm systems, and 24/7 monitoring solutions to protect your assets and people.</p>
+      <a href="{% url 'security_systems' %}" class="service-card-link">Learn More →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">📡</div>
+      <h3>Telecommunications</h3>
+      <p>Structured cabling, fiber optic installation, VoIP systems, and wireless network deployment for seamless connectivity.</p>
+      <a href="{% url 'telecommunications' %}" class="service-card-link">Learn More →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">🔧</div>
+      <h3>Maintenance & Support</h3>
+      <p>Preventive maintenance contracts, 24-hour emergency support, and equipment repair to minimize downtime and maximize productivity.</p>
+      <a href="{% url 'maintenance' %}" class="service-card-link">Learn More →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">📋</div>
+      <h3>Consulting & Design</h3>
+      <p>Expert consultation, technical design, and project management services to help you plan and execute complex projects successfully.</p>
+      <a href="{% url 'contact' %}" class="service-card-link">Learn More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section id="why" class="why-section">
+  <div class="why-grid">
+    <div class="reveal">
+      <div class="section-label" style="color:var(--orange);">Why Choose Us</div>
+      <h2 class="section-title">The TESTECH Difference</h2>
+      <p class="section-sub">We don't just deliver projects — we build lasting relationships founded on integrity, precision, and results.</p>
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-point-icon">✅</div>
+          <h4>ISO Certified</h4>
+          <p>International quality standards in every delivery</p>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">⚡</div>
+          <h4>Fast Delivery</h4>
+          <p>On-time project completion, every time</p>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">🤝</div>
+          <h4>Local Expertise</h4>
+          <p>Deep understanding of East African market needs</p>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">📞</div>
+          <h4>24/7 Support</h4>
+          <p>Always here when you need us most</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-numbers reveal reveal-delay-2">
+      <div class="why-num-card">
+        <div class="why-num">500+</div>
+        <div class="why-num-text"><h4>Successful Projects</h4><p>Across Tanzania and East Africa</p></div>
+      </div>
+      <div class="why-num-card">
+        <div class="why-num">98%</div>
+        <div class="why-num-text"><h4>Client Retention Rate</h4><p>Our clients keep coming back</p></div>
+      </div>
+      <div class="why-num-card">
+        <div class="why-num">12+</div>
+        <div class="why-num-text"><h4>Years of Experience</h4><p>Deep industry knowledge and expertise</p></div>
+      </div>
+      <div class="why-num-card">
+        <div class="why-num">50+</div>
+        <div class="why-num-text"><h4>Expert Engineers</h4><p>Certified professionals on our team</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section">
+  <div class="reveal" style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">Testimonials</div>
+    <h2 class="section-title" style="text-align:center;">What Our Clients Say</h2>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"TESTECH delivered our entire office network setup on time and within budget. Their team was professional, knowledgeable, and always available for support. Highly recommended!"</blockquote>
+      <div class="t-author">
+        <div class="t-avatar">JK</div>
+        <div><div class="t-name">James Kimaro</div><div class="t-role">CEO, Kimaro Holdings — Dar es Salaam</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"The security system TESTECH installed has been flawless for 3 years. Their maintenance team responds within hours whenever we need them. True professionals."</blockquote>
+      <div class="t-author">
+        <div class="t-avatar">FM</div>
+        <div><div class="t-name">Fatuma Mwanga</div><div class="t-role">Operations Manager, Mwanga Mall</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"We have partnered with TESTECH for all our electrical and IT needs across 4 branches. Consistent quality, fair pricing, and excellent communication throughout."</blockquote>
+      <div class="t-author">
+        <div class="t-avatar">DM</div>
+        <div><div class="t-name">David Mushi</div><div class="t-role">Director, Mushi Group of Companies</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BANNER ── -->
+<div class="cta-banner reveal">
+  <h2>Ready to Start Your <span>Next Project</span> With Us?</h2>
+  <a href="#contact" class="btn-navy">Get a Free Consultation</a>
+</div>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="contact-section">
+  <div class="reveal">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Contact TESTECH</h2>
+    <p class="section-sub">Have a project in mind? We'd love to hear from you. Send us a message and we'll respond within 24 hours.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div><h4>Office Location</h4><p>Dar es Salaam, Tanzania<br>East Africa</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div><h4>Phone & WhatsApp</h4><p>+255 700 000 000<br>+255 710 000 000</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div><h4>Email Address</h4><p>info@testech.co.tz<br>projects@testech.co.tz</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div><h4>Working Hours</h4><p>Monday – Friday: 8:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 2:00 PM</p></div>
+      </div>
+    </div>
+
+    <div class="contact-form-glass reveal reveal-delay-1">
+      <div class="contact-form-top">
+        <div class="contact-form-badge">Send Us a Message</div>
+        <h3>Let's Build Something Great Together</h3>
+        <p>Fill out the form below and our team will contact you within 24 hours.</p>
+      </div>
+
+      <form method="post" action="{% url 'contact' %}">
+        {% csrf_token %}
+        <div class="form-row">
+          {{ form.name }}
+          {{ form.email }}
+        </div>
+        {{ form.phone }}
+        {{ form.service }}
+        {{ form.message }}
+
+        {% if form.errors %}
+        <div class="form-error-box">Please correct the errors above.</div>
+        {% endif %}
+
+        <button type="submit" class="premium-submit-btn">
+          <span>Send Message</span>
+          <div class="btn-arrow">→</div>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div>
+    <div class="footer-brand-name">TESTECH</div>
+    <div class="footer-brand-tag">Where Quality Meets Reliability</div>
+    <p class="footer-desc">A leading technology and engineering company delivering excellence across East Africa. Your trusted partner for all technical solutions.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="{% url 'it_solutions' %}">IT Solutions</a></li>
+      <li><a href="{% url 'electrical_engineering' %}">Electrical Engineering</a></li>
+      <li><a href="{% url 'security_systems' %}">Security Systems</a></li>
+      <li><a href="{% url 'telecommunications' %}">Telecommunications</a></li>
+      <li><a href="{% url 'maintenance' %}">Maintenance</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="{% url 'about' %}">About Us</a></li>
+      <li><a href="{% url 'projects' %}">Our Projects</a></li>
+      <li><a href="{% url 'team' %}">Our Team</a></li>
+      <li><a href="{% url 'careers' %}">Careers</a></li>
+      <li><a href="{% url 'news' %}">News</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <ul>
+      <li><a href="{% url 'contact' %}">Dar es Salaam</a></li>
+      <li><a href="mailto:info@testech.co.tz">info@testech.co.tz</a></li>
+      <li><a href="tel:+255700000000">+255 700 000 000</a></li>
+      <li><a href="https://wa.me/255700000000" target="_blank">WhatsApp Us</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom" style="grid-column:1/-1;">
+    <p>© 2026 TESTECH Company Ltd. All rights reserved.</p>
+    <p>Made with ❤️ in <span>Tanzania</span></p>
+  </div>
+</footer>
+
+<script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

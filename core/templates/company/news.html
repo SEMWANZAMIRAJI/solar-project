@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}News — TESTECH Company Ltd{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div class="page-header-geo"></div>
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a><span>›</span><span>News</span></div>
+    <div class="page-header-label">Latest</div>
+    <h1>News & Updates</h1>
+    <p>Stay up to date with TESTECH projects, industry insights, and company announcements.</p>
+  </div>
+</div>
+
+<section>
+  {% if posts %}
+  <div class="card-grid-3 reveal">
+    {% for post in posts %}
+    <a href="" style="text-decoration:none;display:block;background:var(--light-gray);border-radius:8px;overflow:hidden;transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(27,47,110,.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <!-- Post Header -->
+      <div style="background:var(--navy);padding:32px 28px;position:relative;min-height:120px;">
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">{{ post.published_at|date:"d M Y" }}</div>
+        <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);">By {{ post.author }}</div>
+      </div>
+      <div style="padding:28px;">
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:12px;line-height:1.4;">{{ post.title }}</h3>
+        <p style="font-size:.87rem;color:var(--mid-gray);line-height:1.7;margin-bottom:18px;">{{ post.summary|truncatewords:22 }}</p>
+        <span style="font-size:.8rem;font-weight:700;color:var(--orange);letter-spacing:.06em;text-transform:uppercase;">Read More →</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% if is_paginated %}
+  <div style="display:flex;justify-content:center;gap:8px;margin-top:48px;">
+    {% if page_obj.has_previous %}<a href="?page={{ page_obj.previous_page_number }}" style="padding:10px 18px;border:1px solid #e0e4f0;border-radius:4px;text-decoration:none;color:var(--navy);font-weight:700;font-size:.85rem;">← Prev</a>{% endif %}
+    <span style="padding:10px 18px;background:var(--navy);color:#fff;border-radius:4px;font-weight:700;font-size:.85rem;">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}<a href="?page={{ page_obj.next_page_number }}" style="padding:10px 18px;border:1px solid #e0e4f0;border-radius:4px;text-decoration:none;color:var(--navy);font-weight:700;font-size:.85rem;">Next →</a>{% endif %}
+  </div>
+  {% endif %}
+
+  {% else %}
+  <div style="text-align:center;padding:80px 0;" class="reveal">
+    <div style="font-size:3rem;margin-bottom:20px;">📰</div>
+    <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:12px;">No posts yet</h3>
+    <p style="color:var(--mid-gray);">Check back soon for news and updates from TESTECH.</p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}Careers — TESTECH Company Ltd{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div class="page-header-geo"></div>
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a><span>›</span><span>Careers</span></div>
+    <div class="page-header-label">Join Us</div>
+    <h1>Careers at TESTECH</h1>
+    <p>Build your career with Tanzania's leading technology and engineering company.</p>
+  </div>
+</div>
+
+<!-- WHY WORK WITH US -->
+<section>
+  <div style="text-align:center;margin-bottom:50px;" class="reveal">
+    <div class="section-label" style="justify-content:center;">Why TESTECH</div>
+    <h2 class="section-title">Why Work With Us?</h2>
+  </div>
+  <div class="card-grid-3 reveal">
+    <div style="text-align:center;padding:36px 28px;">
+      <div style="font-size:2.5rem;margin-bottom:16px;">🚀</div>
+      <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:10px;">Career Growth</h3>
+      <p style="font-size:.88rem;color:var(--mid-gray);line-height:1.7;">Clear progression paths, professional certifications, and ongoing training to advance your career.</p>
+    </div>
+    <div style="text-align:center;padding:36px 28px;">
+      <div style="font-size:2.5rem;margin-bottom:16px;">🌍</div>
+      <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:10px;">Regional Exposure</h3>
+      <p style="font-size:.88rem;color:var(--mid-gray);line-height:1.7;">Work on exciting projects across Tanzania and East Africa, gaining diverse real-world experience.</p>
+    </div>
+    <div style="text-align:center;padding:36px 28px;">
+      <div style="font-size:2.5rem;margin-bottom:16px;">🤝</div>
+      <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:10px;">Great Culture</h3>
+      <p style="font-size:.88rem;color:var(--mid-gray);line-height:1.7;">A collaborative, supportive team where your ideas are valued and your work makes a real difference.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JOB OPENINGS -->
+<section style="background:var(--light-gray);">
+  <div class="reveal">
+    <div class="section-label">Open Positions</div>
+    <h2 class="section-title">Current Vacancies</h2>
+  </div>
+
+  {% if jobs %}
+  <div style="margin-top:40px;display:flex;flex-direction:column;gap:16px;" class="reveal">
+    {% for job in jobs %}
+    <div style="background:#fff;border-radius:8px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;border-left:4px solid var(--orange);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(27,47,110,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="flex:1;">
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.05rem;color:var(--navy);margin-bottom:8px;">{{ job.title }}</h3>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px;">
+          <span style="font-size:.78rem;color:var(--mid-gray);">🏢 {{ job.department }}</span>
+          <span style="font-size:.78rem;color:var(--mid-gray);">📍 {{ job.location }}</span>
+          <span style="font-size:.78rem;color:var(--mid-gray);">⏰ {{ job.type }}</span>
+        </div>
+        <p style="font-size:.87rem;color:var(--mid-gray);line-height:1.65;">{{ job.description|truncatewords:25 }}</p>
+      </div>
+      <a href="{% url 'contact' %}?subject={{ job.title|urlencode }}" class="btn-orange" style="white-space:nowrap;">Apply Now</a>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="text-align:center;padding:60px 0;background:#fff;border-radius:8px;margin-top:32px;" class="reveal">
+    <div style="font-size:3rem;margin-bottom:20px;">💼</div>
+    <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:12px;">No open positions right now</h3>
+    <p style="color:var(--mid-gray);margin-bottom:28px;">We don't have any vacancies at the moment, but we're always interested in talented engineers. Send us your CV!</p>
+    <a href="{% url 'contact' %}" class="btn-orange">Send Your CV</a>
+  </div>
+  {% endif %}
+</section>
+
+<div class="cta-banner reveal">
+  <h2>Don't See the Right Role? <span>Send Us Your CV Anyway.</span></h2>
+  <a href="{% url 'contact' %}" class="btn-navy">Get in Touch</a>
+</div>
+{% endblock %}

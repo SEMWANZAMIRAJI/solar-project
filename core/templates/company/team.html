@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Our Team — TESTECH Company Ltd{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div class="page-header-geo"></div>
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a><span>›</span><span>Our Team</span></div>
+    <div class="page-header-label">People</div>
+    <h1>Our Team</h1>
+    <p>50+ certified engineers and professionals dedicated to delivering excellence every day.</p>
+  </div>
+</div>
+
+<section>
+  <div style="text-align:center;margin-bottom:60px;" class="reveal">
+    <div class="section-label" style="justify-content:center;">The TESTECH Family</div>
+    <h2 class="section-title">Meet Our Experts</h2>
+    <p class="section-sub" style="margin:0 auto;text-align:center;max-width:560px;">Our team brings together the best engineering talent in East Africa, united by a shared commitment to quality and reliability.</p>
+  </div>
+
+  {% if team_members %}
+  <div class="card-grid-3 reveal">
+    {% for member in team_members %}
+    <div style="background:var(--light-gray);border-radius:10px;overflow:hidden;transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(27,47,110,.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <!-- Avatar -->
+      <div style="background:var(--navy);padding:40px;text-align:center;position:relative;">
+        <div style="width:90px;height:90px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;color:var(--navy);margin:0 auto;border:4px solid rgba(255,255,255,.2);">{{ member.name|first }}</div>
+      </div>
+      <!-- Info -->
+      <div style="padding:28px;text-align:center;">
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.05rem;color:var(--navy);margin-bottom:6px;">{{ member.name }}</h3>
+        <p style="font-size:.78rem;color:var(--orange);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;">{{ member.role }}</p>
+        <p style="font-size:.85rem;color:var(--mid-gray);line-height:1.65;">{{ member.bio }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="text-align:center;padding:80px 0;">
+    <div style="font-size:3rem;margin-bottom:20px;">👥</div>
+    <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);">Team profiles coming soon</h3>
+    <p style="color:var(--mid-gray);margin-top:12px;">Add team members via the admin panel.</p>
+  </div>
+  {% endif %}
+</section>
+
+<!-- JOIN US -->
+<section style="background:var(--navy);">
+  <div style="text-align:center;" class="reveal">
+    <div class="section-label" style="justify-content:center;color:var(--orange);">Join the Team</div>
+    <h2 class="section-title" style="color:#fff;">Want to Work With Us?</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.6);margin:0 auto;text-align:center;max-width:500px;">We're always looking for talented, passionate engineers to join the TESTECH family. Check out our open positions.</p>
+    <div style="margin-top:36px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="{% url 'careers' %}" class="btn-orange">View Open Positions</a>
+      <a href="{% url 'contact' %}" class="btn-ghost">Send Your CV</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

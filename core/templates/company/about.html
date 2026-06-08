@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}About Us — TESTECH Company Ltd{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div class="page-header-geo"></div>
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a><span>›</span><span>About Us</span></div>
+    <div class="page-header-label">Company</div>
+    <h1>About TESTECH</h1>
+    <p>Over 12 years of engineering excellence, built on trust and a passion for quality.</p>
+  </div>
+</div>
+
+<section>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;" class="reveal">
+    <div>
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Tanzania's Trusted Technology Partner</h2>
+      <p class="section-sub" style="max-width:100%;">TESTECH Company Ltd was founded with a clear mission: to bring world-class technology and engineering solutions to businesses across East Africa. Since our inception, we have grown from a small team of passionate engineers into one of Tanzania's most respected technology firms.</p>
+      <p style="margin-top:20px;font-size:.95rem;color:var(--mid-gray);line-height:1.8;">We believe that quality and reliability are not trade-offs — they are the standard. Every project we undertake, regardless of size, receives the same level of professional attention and commitment to excellence.</p>
+      <p style="margin-top:16px;font-size:.95rem;color:var(--mid-gray);line-height:1.8;">Today, TESTECH serves over 300 clients across Tanzania and 5 East African countries, with a portfolio spanning IT infrastructure, electrical engineering, security systems, telecommunications, and ongoing maintenance services.</p>
+    </div>
+    <div style="background:var(--light-gray);border-radius:8px;padding:48px;text-align:center;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="background:#fff;border-radius:8px;padding:28px;border-left:4px solid var(--orange);">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.5rem;color:var(--navy);">2012</div>
+          <div style="font-size:.8rem;color:var(--mid-gray);font-weight:700;margin-top:4px;">Founded</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:28px;border-left:4px solid var(--orange);">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.5rem;color:var(--navy);">500+</div>
+          <div style="font-size:.8rem;color:var(--mid-gray);font-weight:700;margin-top:4px;">Projects</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:28px;border-left:4px solid var(--orange);">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.5rem;color:var(--navy);">50+</div>
+          <div style="font-size:.8rem;color:var(--mid-gray);font-weight:700;margin-top:4px;">Engineers</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:28px;border-left:4px solid var(--orange);">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.5rem;color:var(--navy);">5</div>
+          <div style="font-size:.8rem;color:var(--mid-gray);font-weight:700;margin-top:4px;">Countries</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION / VALUES -->
+<section style="background:var(--light-gray);">
+  <div style="text-align:center;margin-bottom:50px;" class="reveal">
+    <div class="section-label" style="justify-content:center;">What Drives Us</div>
+    <h2 class="section-title">Mission, Vision & Values</h2>
+  </div>
+  <div class="card-grid-3 reveal">
+    <div style="background:#fff;border-radius:8px;padding:40px;text-align:center;border-top:4px solid var(--orange);">
+      <div style="font-size:2.5rem;margin-bottom:20px;">🎯</div>
+      <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:14px;">Our Mission</h3>
+      <p style="font-size:.88rem;color:var(--mid-gray);line-height:1.75;">To deliver innovative, reliable, and cost-effective technology and engineering solutions that empower businesses to grow and communities to thrive across East Africa.</p>
+    </div>
+    <div style="background:#fff;border-radius:8px;padding:40px;text-align:center;border-top:4px solid var(--navy);">
+      <div style="font-size:2.5rem;margin-bottom:20px;">🌟</div>
+      <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:14px;">Our Vision</h3>
+      <p style="font-size:.88rem;color:var(--mid-gray);line-height:1.75;">To be East Africa's most trusted technology and engineering partner — known for excellence, integrity, and the positive impact we create in every community we serve.</p>
+    </div>
+    <div style="background:#fff;border-radius:8px;padding:40px;text-align:center;border-top:4px solid var(--orange);">
+      <div style="font-size:2.5rem;margin-bottom:20px;">💎</div>
+      <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);margin-bottom:14px;">Our Values</h3>
+      <p style="font-size:.88rem;color:var(--mid-gray);line-height:1.75;">Quality without compromise. Reliability you can count on. Integrity in every interaction. Innovation that solves real problems. People first — always.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM PREVIEW -->
+{% if team_members %}
+<section>
+  <div style="text-align:center;margin-bottom:50px;" class="reveal">
+    <div class="section-label" style="justify-content:center;">Our People</div>
+    <h2 class="section-title">Meet the Leadership Team</h2>
+    <p class="section-sub" style="margin:0 auto;text-align:center;">The experienced professionals driving TESTECH's growth and excellence.</p>
+  </div>
+  <div class="card-grid-3 reveal">
+    {% for member in team_members %}
+    <div style="background:var(--light-gray);border-radius:8px;padding:32px;text-align:center;">
+      <div style="width:80px;height:80px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.6rem;color:#fff;margin:0 auto 20px;">{{ member.name|first }}</div>
+      <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:6px;">{{ member.name }}</h3>
+      <p style="font-size:.82rem;color:var(--orange);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;">{{ member.role }}</p>
+      <p style="font-size:.85rem;color:var(--mid-gray);line-height:1.6;">{{ member.bio|truncatewords:20 }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  <div style="text-align:center;margin-top:40px;"><a href="{% url 'team' %}" class="btn-navy">View Full Team</a></div>
+</section>
+{% endif %}
+
+<div class="cta-banner reveal">
+  <h2>Want to Work With <span>Tanzania's Best</span> Tech Team?</h2>
+  <a href="{% url 'contact' %}" class="btn-navy">Get in Touch</a>
+</div>
+{% endblock %}

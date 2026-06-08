@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us — TESTECH Company Ltd{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Contact page specific overrides */
+.contact-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  width: 100%;
+  min-width: 0;
+}
+
+.contact-page-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.contact-info-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  background: var(--navy);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.contact-info-item h4 {
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+  font-size: .92rem;
+}
+
+.contact-info-item p {
+  font-size: .88rem;
+  color: var(--mid-gray);
+  line-height: 1.6;
+}
+
+.contact-cta-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+@media (max-width: 900px) {
+  .contact-page-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .contact-cta-btns {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-cta-btns {
+    flex-direction: column;
+  }
+  .contact-cta-btns a {
+    text-align: center;
+  }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="page-header-geo"></div>
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span>›</span>
+      <span>Contact</span>
+    </div>
+    <div class="page-header-label">Get in Touch</div>
+    <h1>Contact TESTECH</h1>
+    <p>We'd love to hear from you. Send us a message and we'll respond within 24 hours.</p>
+  </div>
+</div>
+
+<section>
+  {% if success %}
+  <div class="alert alert-success reveal">✅ Thank you! Your message has been sent. Our team will contact you within 24 hours.</div>
+  {% endif %}
+  {% for message in messages %}
+  <div class="alert {% if message.tags == 'error' %}alert-error{% else %}alert-success{% endif %} reveal">{{ message }}</div>
+  {% endfor %}
+
+  <div class="contact-page-grid reveal">
+
+    <!-- ── LEFT: Contact Info ── -->
+    <div class="contact-page-info">
+      <div class="section-label">Reach Us</div>
+      <h2 class="section-title">Let's Start a Conversation</h2>
+      <p class="section-sub" style="max-width:100%;margin-bottom:8px;">
+        Whether you have a project in mind, need a quote, or simply want to learn more — we're here to help.
+      </p>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📍</div>
+        <div>
+          <h4>Office Location</h4>
+          <p>Dar es Salaam, Tanzania<br>East Africa</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📞</div>
+        <div>
+          <h4>Phone & WhatsApp</h4>
+          <p>+255 700 000 000<br>+255 710 000 000</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <p>info@testech.co.tz<br>projects@testech.co.tz</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">🕐</div>
+        <div>
+          <h4>Working Hours</h4>
+          <p>Monday – Friday: 8:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 2:00 PM</p>
+        </div>
+      </div>
+
+      <div class="contact-cta-btns">
+        <a href="tel:+255700000000" class="btn-orange">📞 Call Now</a>
+        <a href="https://wa.me/255700000000" class="btn-navy">💬 WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- ── RIGHT: Contact Form ── -->
+    <div class="contact-form-glass reveal reveal-delay-1">
+      <div class="contact-form-top">
+        <div class="contact-form-badge">Send Us a Message</div>
+        <h3>Let's Build Something Great Together</h3>
+        <p>Fill out the form below and our team will contact you within 24 hours.</p>
+      </div>
+
+      <form method="post" action="{% url 'contact' %}">
+        {% csrf_token %}
+
+        <div class="form-row">
+          {{ form.name }}
+          {{ form.email }}
+        </div>
+
+        {{ form.phone }}
+        {{ form.service }}
+        {{ form.message }}
+
+        {% if form.errors %}
+        <div class="form-error-box">Please correct the errors above.</div>
+        {% endif %}
+
+        <button type="submit" class="premium-submit-btn">
+          <span>Send Message</span>
+          <div class="btn-arrow">→</div>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
